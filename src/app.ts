@@ -10,12 +10,16 @@ import cookieParser from "cookie-parser";
 import passport from "passport";
 import { passportConfig } from "./config/passport-config";
 import { Routes } from "./interfaces/route.interface";
+import bodyParser from "body-parser";
+import fileUpload from "express-fileupload";
+import { cloudinaryConfig } from "./config/cloudinary-config";
 
 config();
 const MongoDBSession = ConnectMongoDBSession(session);
 set('strictQuery', false);
 
 passportConfig(passport);
+cloudinaryConfig();
 
 
 class App{
@@ -50,10 +54,12 @@ class App{
 
     private initializeMiddlewares(){
         this.app.use(helmet());
-        this.app.use(express.urlencoded({extended : true}));
+        // this.app.use(express.urlencoded({extended : true}));
         this.app.use(compression());
         this.app.use(express.json());
         this.app.use(cookieParser());
+        this.app.use(bodyParser.urlencoded({extended:true}));
+        this.app.use(fileUpload({useTempFiles:true}));
         this.app.use(session({
                 name: 'assess-user-session',
                 secret: process.env.SESSION_SECRET,
