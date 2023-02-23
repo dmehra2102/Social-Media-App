@@ -1,0 +1,1 @@
+{"version":3,"file":"database.js","sourceRoot":"","sources":["../../src/database/database.ts"],"names":[],"mappings":";;;AAAa,QAAA,YAAY,GAAG;IACxB,GAAG,EAAE,OAAO,CAAC,GAAG,CAAC,WAAW;IAC5B,OAAO,EAAE;QACL,SAAS,EAAE,IAAI;QACf,UAAU,EAAE,IAAI;KACnB;CACJ,CAAC"}
