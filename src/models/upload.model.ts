@@ -7,11 +7,12 @@ const UploadSchema = new Schema({
     signature : {type: String, required : true},
     url : {type: String, required : true},
     user_id : {type : Types.ObjectId, required : true},
-    resource_type : {type : String, required:true}
+    resource_type : {type : String, required:true},
+    tags : {type : [String], required:true}
 },{
     timestamps : true,
     versionKey : false
 })
 
 
-export const ImageModel = model<UploadImageInterface & Document>('imgae', UploadSchema);
+export const UploadModel = model<UploadImageInterface & Document>('uploadedData', UploadSchema);

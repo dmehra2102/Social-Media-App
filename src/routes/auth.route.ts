@@ -2,6 +2,8 @@ import AuthController from "../controllers/auth.controller";
 import { Router } from "express";
 import { ensureAuthenticated } from "../middleware/ensureAuthenticated";
 
+
+
 class AuthRoute {
     public path = '/user';
     public router = Router();

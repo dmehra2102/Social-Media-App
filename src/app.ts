@@ -6,6 +6,7 @@ import { connect, set } from "mongoose";
 import { dbConnection } from "./database";
 import helmet from "helmet";
 import compression from "compression";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import passport from "passport";
 import { passportConfig } from "./config/passport-config";
@@ -54,7 +55,7 @@ class App{
 
     private initializeMiddlewares(){
         this.app.use(helmet());
-        // this.app.use(express.urlencoded({extended : true}));
+        this.app.use(cors())
         this.app.use(compression());
         this.app.use(express.json());
         this.app.use(cookieParser());

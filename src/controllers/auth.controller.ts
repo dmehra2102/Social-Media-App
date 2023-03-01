@@ -15,12 +15,12 @@ class AuthController {
 
             const user = await UserModel.findOne({ email });
             if (user) {
-                res.status(401).send({ error: true, message: 'Email already exists.' });
+                return res.status(401).send({ error: true, message: 'Email already exists.' });
             }
 
             await UserModel.create({ email, password, name });
 
-            res.status(201).send({ error: false, message: 'Register successfull.' });
+            return res.status(201).send({ error: false, message: 'Register successfull.' });
         } catch (error) {
             res.status(401).json({ error: true, message: error.message });
         }

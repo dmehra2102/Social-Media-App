@@ -7,4 +7,5 @@ export interface UploadImageInterface {
     url : string;
     user_id : Types.ObjectId;
     resource_type : string;
+    tags : string[];
 }
